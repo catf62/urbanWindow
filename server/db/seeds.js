@@ -12,11 +12,13 @@ const Seeds = function () {
 Seeds.prototype.getData = function () {
   const cityNameRequest = new RequestHelper(this.cityNamesUrl);
   cityNameRequest.get()
-  .then((response) => {
-    this.extractCityNames(response);
+  .then((citiesResponse) => {
+    this.extractCityNames(citiesResponse);
+    return citiesResponse['_links']['ua:item'];
   })
-  .then((response) => {
-  this.getPicture()
+  .then((cities) => {
+
+  this.getPicture(cities)
   })
 .catch(console.error);
 };
@@ -31,26 +33,24 @@ Seeds.prototype.extractCityNames = function (response) {
 
 }
 
-Seeds.prototype.getPicture = function () {
-  console.log('dog');
-  console.log(this.cityNames)
-  this.cityNames.forEach((cityName) => {
-    const cleanName = cityName.toLowerCase().replace(' ', '-');
-    const pictureRequest = new RequestHelper(this.cityNamesUrl + `/slug:${cleanName}/images`)
+Seeds.prototype.getPicture = function (cities) {
 
+  cities.forEach((city) => {
+
+    const pictureRequest = new RequestHelper(city['href'] + `images`)
+    console.log(city['href'] + `images`);
+    let cityPictureURL;
     pictureRequest.get()
-    .then((response) => {
-      console.log(response);
-      this.extractPicture(response)
+    .then((pictureObject) => {
+      this.extractPicture(pictureObject)
     })
     .catch(console.error);
   });
 };
 
-Seeds.prototype.extractPicture = function (response) {
-  const pictureUrl = response['photos'][0]['image']['web'];
-  console.log('dog');
-
+Seeds.prototype.extractPicture = function (pictureObject) {
+  const pictureUrl = pictureObject['photos'][0]['image']['web'];
+  cityPictureURL = pictureUrl;
 };
 
 module.exports = Seeds;
