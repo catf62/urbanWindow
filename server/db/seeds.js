@@ -1,6 +1,8 @@
-const RequestHelper = require('../helpers/request_helpers.js')
+const RequestHelper = require('../helpers/request_helpers.js');
+const fs = require('fs');
 
 const Seeds = function () {
+  this.json;
   this.cities = [];
   this.cityNames = [];
   this.cityUrl = 'https://api.teleport.org/api/urban_areas';
@@ -23,8 +25,12 @@ Seeds.prototype.getData = function () {
   })
   .then((cities) => {
     setTimeout(() => {
-      console.log(this.cities)
-    }, 10000)
+      this.json = JSON.stringify(this.cities);
+      fs.writeFile('./seeds/cities.json', this.json, (err) => {
+        if (err) throw err;
+        console.log('The file has been saved!');
+      });
+    }, 5000)
   })
   .catch(console.error);
 };
