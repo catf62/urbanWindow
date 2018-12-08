@@ -6,7 +6,7 @@ To seed the files, follow these steps:
 
 3. run the command: node server/db/run_seed.js
 
-4. run the command: seeds
+4. run the command: seed
 
 5. open mongodb compass application (equivalent of postico for sql) and look at the collection "cities"
 
