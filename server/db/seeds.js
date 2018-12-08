@@ -18,11 +18,13 @@ Seeds.prototype.getData = function () {
     return cities // save picture url to the city in this.cities
   })
   .then((cities) => {
-    this.getScores(cities);
-    return cities
+    return this.getScores(cities);
+    // return cities
   })
   .then((cities) => {
-    this.getSummary(cities);
+    setTimeout(() => {
+      console.log(this.cities)
+    }, 10000)
   })
   .catch(console.error);
 };
@@ -48,27 +50,14 @@ Seeds.prototype.getPicture = function (cities) {
     const pictureRequest = new RequestHelper(city['href'] + `images`) // get request of the city image url
     pictureRequest.get()
     .then((pictureObject) => {
-      cityPictureURL = this.extractPicture(pictureObject);
+      // cityPictureURL = this.extractPicture(pictureObject);
       // find the city in this.cities and add cityPictureURL
-      this.addPictureURL(city, cityPictureURL);
+      this.addItemToCity(city, pictureObject['photos'][0]['image']['web'], 'pictureURL');
       // find the index of the objects with the city name
       // add a new key value pair to the object
     })
     .catch(console.error);
   });
-};
-
-Seeds.prototype.extractPicture = function (pictureObject) {
-  const pictureUrl = pictureObject['photos'][0]['image']['web'];
-  return pictureUrl;
-};
-
-Seeds.prototype.addPictureURL = function (searchCity, cityPictureURL) {
-  const index = this.cities.findIndex((cityInCities) => {
-    return cityInCities['name'] === searchCity['name']
-  })
-  const selectedCity = this.cities[index];
-  selectedCity.pictureUrl = cityPictureURL;
 };
 
 // CITY SCORES
@@ -78,22 +67,22 @@ Seeds.prototype.getScores = function (cities) {
     let cityScoreRequest = new RequestHelper(city['href'] + 'scores')
     cityScoreRequest.get()
     .then((scoreObject) => {
-      const keys = [scoreObject['categories'], scoreObject['summary']]
-      return keys.forEach((key) => this.addItemInScore(city, key))
+      this.addItemToCity(city, scoreObject['categories'], 'categories')
+      return scoreObject
     })
-    .then((response) => {
-      console.log(this.cities);
+    .then((scoreObject) => {
+      this.addItemToCity(city, scoreObject['summary'], 'summary')
     })
     .catch(console.error);
   })
 }
 
-Seeds.prototype.addItemInScore = function (searchCity, key) {
+Seeds.prototype.addItemToCity = function (searchCity, key, keyName) {
   const index = this.cities.findIndex((cityInCities) => {
     return cityInCities['name'] === searchCity['name']
   })
   const selectedCity = this.cities[index];
-  selectedCity[key] = key;
+  selectedCity[keyName] = key;
 };
 
 module.exports = Seeds;
