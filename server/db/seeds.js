@@ -14,10 +14,17 @@ Seeds.prototype.getData = function () {
     return citiesResponse['_links']['ua:item']; // return array of cities - names and link
   })
   .then((cities) => {
-    return this.getPicture(cities) // save picture url to the city in this.cities
+    this.getPicture(cities);
+    return cities // save picture url to the city in this.cities
+  })
+  .then((cities) => {
+    this.getScores(cities);
   })
   .catch(console.error);
 };
+
+
+// CITY NAMES
 
 Seeds.prototype.extractCityNames = function (response) {
   const citiesArray = response['_links']['ua:item'];
@@ -27,6 +34,8 @@ Seeds.prototype.extractCityNames = function (response) {
     this.cities.push(cityObject)
   });
 }
+
+// CITY PICTURES
 
 Seeds.prototype.getPicture = function (cities) {
 // cities is an array of city name and url
@@ -39,11 +48,7 @@ Seeds.prototype.getPicture = function (cities) {
       // find the city in this.cities and add cityPictureURL
       this.addPictureURL(city, cityPictureURL);
       // find the index of the objects with the city name
-
       // add a new key value pair to the object
-    })
-    .then((response) => {
-      console.log(this.cities);
     })
     .catch(console.error);
   });
@@ -58,9 +63,32 @@ Seeds.prototype.addPictureURL = function (searchCity, cityPictureURL) {
   const index = this.cities.findIndex((cityInCities) => {
     return cityInCities['name'] === searchCity['name']
   })
-  console.log(index);
   const selectedCity = this.cities[index];
   selectedCity.pictureUrl = cityPictureURL;
+};
+
+// CITY SCORES
+
+Seeds.prototype.getScores = function (cities) {
+    cities.forEach((city) => {
+      let cityScoreRequest = new RequestHelper(city['href'] + 'scores')
+      cityScoreRequest.get()
+      .then((scoreObject) => {
+        return this.addScore(city, scoreObject['categories']);
+      })
+      .then((response) => {
+        console.log(this.cities);
+      })
+    .catch(console.error);
+    })
+}
+
+Seeds.prototype.addScore = function (searchCity, scores) {
+  const index = this.cities.findIndex((cityInCities) => {
+    return cityInCities['name'] === searchCity['name']
+  })
+  const selectedCity = this.cities[index];
+  selectedCity.score = scores;
 };
 
 
