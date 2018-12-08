@@ -19,6 +19,10 @@ Seeds.prototype.getData = function () {
   })
   .then((cities) => {
     this.getScores(cities);
+    return cities
+  })
+  .then((cities) => {
+    this.getSummary(cities);
   })
   .catch(console.error);
 };
@@ -38,7 +42,7 @@ Seeds.prototype.extractCityNames = function (response) {
 // CITY PICTURES
 
 Seeds.prototype.getPicture = function (cities) {
-// cities is an array of city name and url
+  // cities is an array of city name and url
   cities.forEach((city) => {
     let cityPictureURL;
     const pictureRequest = new RequestHelper(city['href'] + `images`) // get request of the city image url
@@ -70,17 +74,18 @@ Seeds.prototype.addPictureURL = function (searchCity, cityPictureURL) {
 // CITY SCORES
 
 Seeds.prototype.getScores = function (cities) {
-    cities.forEach((city) => {
-      let cityScoreRequest = new RequestHelper(city['href'] + 'scores')
-      cityScoreRequest.get()
-      .then((scoreObject) => {
-        return this.addScore(city, scoreObject['categories']);
-      })
-      .then((response) => {
-        console.log(this.cities);
-      })
-    .catch(console.error);
+  cities.forEach((city) => {
+    let cityScoreRequest = new RequestHelper(city['href'] + 'scores')
+    cityScoreRequest.get()
+    .then((scoreObject) => {
+      this.addScore(city, scoreObject['categories'])
+      return this.addSummary(city, scoreObject['summary']);
     })
+    .then((response) => {
+      console.log(this.cities);
+    })
+    .catch(console.error);
+  })
 }
 
 Seeds.prototype.addScore = function (searchCity, scores) {
@@ -91,5 +96,15 @@ Seeds.prototype.addScore = function (searchCity, scores) {
   selectedCity.score = scores;
 };
 
+
+//
+
+Seeds.prototype.addSummary = function (searchCity, summary) {
+  const index = this.cities.findIndex((cityInCities) => {
+    return cityInCities['name'] === searchCity['name']
+  })
+  const selectedCity = this.cities[index];
+  selectedCity.summary = summary;
+};
 
 module.exports = Seeds;
