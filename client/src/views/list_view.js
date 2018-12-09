@@ -6,7 +6,9 @@ const ListView = function (city_options, listElement) {
 };
 
 ListView.prototype.bindEvents = function () {
-  PubSub.subscribe(`SelectView:submit-${city_options}`, (evt) => {
+  console.log(this.city_options);
+  PubSub.subscribe(`SelectView:submit-${this.city_options}`, (evt) => {
+    console.log(evt.detail);
     this.render(evt.detail);
   });
 };

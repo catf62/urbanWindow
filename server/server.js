@@ -87,3 +87,7 @@ const teas = [
 app.listen(3000, function () {
   console.log(`App running on port ${ this.address().port }`);
 });
+
+app.get('/api/cities', (req, res) => { // NEW
+  res.json(teas);
+});

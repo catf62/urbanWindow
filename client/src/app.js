@@ -7,7 +7,7 @@ const SelectView = require('./views/select_view');
 
 document.addEventListener('DOMContentLoaded', () => {
   // listening for a city selection being made
-  const selectElement = document.querySelector('form#city_options_form');
+  const selectElement = document.querySelector('form#city-options-form');
   const selectView = new SelectView(selectElement);
   selectView.bindEvents();
 

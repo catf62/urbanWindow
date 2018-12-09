@@ -13,19 +13,19 @@ Cities.prototype.bindEvents = function () {
   });
 };
 
-// Cities.prototype.getData = function () {
-//   this.request.get()
-//     .then((consumables) => {
-//       PubSub.publish(`Cities:${this.category}-data-loaded`, consumables);
-//     })
-//     .catch(console.error);
-// };
-//
-// Cities.prototype.postData = function (formData) {
-//   this.request.post(formData)
-//     .then((consumables) => {
-//       PubSub.publish(`Cities:${this.category}-data-loaded`, consumables);
-//     });
-// };
+Cities.prototype.getData = function () {
+  this.request.get()
+    .then((consumables) => {
+      PubSub.publish(`Cities:${this.category}-data-loaded`, consumables);
+    })
+    .catch(console.error);
+};
+
+Cities.prototype.postData = function (formData) {
+  this.request.post(formData)
+    .then((consumables) => {
+      PubSub.publish(`Cities:${this.category}-data-loaded`, consumables);
+    });
+};
 
 module.exports = Cities;
