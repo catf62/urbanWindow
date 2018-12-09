@@ -8,10 +8,10 @@ const SelectView = function (selectElement) {
 SelectView.prototype.bindEvents = function () {
   this.selectElement.addEventListener('submit', (evt) => {
     evt.preventDefault();
-    const data = this.createData(evt.target);
-    const city_options = evt.target.city_options.value;
-    PubSub.publish(`SelectView:submit-${city_options}`, data);
-    evt.target.reset();
+    // const data = this.createData(evt.target);
+    // const city_options = evt.target.city_options.value;
+    // PubSub.publish(`SelectView:submit-${city_options}`, data);
+    // evt.target.reset();
   });
 };
 
