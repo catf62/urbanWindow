@@ -9,7 +9,7 @@ CityDetailView.prototype.createCityDetail = function (city) {
   cityDetail.appendChild(cityName);
 
   const citySummary = document.createElement('div');
-  citySummary.textContent = city.summary;
+  citySummary.innerHTML = city.summary;
   cityDetail.appendChild(citySummary);
 
   const categoryHeader = document.createElement('h4');
