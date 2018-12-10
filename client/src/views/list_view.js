@@ -34,4 +34,6 @@ ListView.prototype.createCityListItem = function (city) {
   return cityDetail;
 };
 
+
+
 module.exports = ListView;

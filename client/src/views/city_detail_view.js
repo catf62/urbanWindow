@@ -5,11 +5,11 @@ CityDetailView.prototype.createCityDetail = function (city) {
   cityDetail.classList.add('city-detail');
 
   const cityName = document.createElement('h3');
-  cityName.textContent = city.city_name;
+  cityName.textContent = city.name;
   cityDetail.appendChild(cityName);
 
-  const citySummary = document.createElement('p');
-  citySummary.textContent = city.city_summary;
+  const citySummary = document.createElement('div');
+  citySummary.textContent = city.summary;
   cityDetail.appendChild(citySummary);
 
   const categoryHeader = document.createElement('h4');
