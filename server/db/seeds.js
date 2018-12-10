@@ -42,7 +42,7 @@ Seeds.prototype.extractCityNames = function (response) {
   const citiesArray = response['_links']['ua:item'];
   citiesArray.forEach((city) => {
     this.cityNames.push(city['name']);
-    let cityObject = {'name': city['name']}
+    let cityObject = {'cityName': city['name']}
     this.cities.push(cityObject)
   });
 }
@@ -85,7 +85,7 @@ Seeds.prototype.getScores = function (cities) {
 
 Seeds.prototype.addItemToCity = function (searchCity, key, keyName) {
   const index = this.cities.findIndex((cityInCities) => {
-    return cityInCities['name'] === searchCity['name']
+    return cityInCities['cityName'] === searchCity['name']
   })
   const selectedCity = this.cities[index];
   selectedCity[keyName] = key;

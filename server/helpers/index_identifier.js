@@ -1,5 +1,7 @@
 const getIndex = function (str) {
 
+  console.log(str);
+
   const categoryArray = ['Housing', 'Cost of Living', 'Startups', 'Venture Capital', 'Travel Connectivity', 'Commute', 'Business Freedom', 'Safety', 'Healthcare', 'Education', 'Environmental Quality', 'Economy', 'Taxation', 'Internet Access', 'Leisure & Culture', 'Tolerance', 'Outdoors']
 
   const category = str.toLowerCase()
