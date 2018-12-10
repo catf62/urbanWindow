@@ -1,35 +1,37 @@
 const PubSub = require('../helpers/pub_sub.js');
+const CityDetailView = require('./city_detail_view');
 
-const ListView = function (city_options, listElement) {
-  this.city_options = city_options;
-  this.listElement = listElement;
+const ListView = function (container) {
+  this.container = container;
 };
+
+// const ListView = function (city_options, listElement) {
+//   this.city_options = city_options;
+//   this.listElement = listElement;
+// };
 
 ListView.prototype.bindEvents = function () {
-  console.log(this.city_options);
-  PubSub.subscribe(`SelectView:submit-${this.city_options}`, (evt) => {
-    console.log(evt.detail);
-    this.render(evt.detail);
-  });
-};
-
-ListView.prototype.render = function (cityData) {
-  this.clearList();
-  cityData.forEach((item, index) => {
-    const listItem = this.createListItem(item);
-    this.listElement.appendChild(listItem);
+  PubSub.subscribe("Cities:cities-ready", (evt) => {
+    this.clearList();
+    this.renderCityDetailView(evt.detail);
   });
 };
 
 ListView.prototype.clearList = function () {
-  this.listElement.innerHTML = '';
+  this.container.innerHTML = '';
 };
 
-ListView.prototype.createListItem = function (item) {
-  const listItem = document.createElement('li');
-  const textContent = `${item.city_name}, ${item.image_url}, ${item.categories}`;
-  listItem.textContent = textContent;
-  return listItem;
+ListView.prototype.renderCityDetailViews = function (cities) {
+  cities.forEach((city) => {
+    const cityItem = this.createCityListItem(city);
+    this.container.appendChild(cityItem);
+  });
+};
+
+ListView.prototype.createListItem = function (city) {
+  const cityDetailView = new CityDetailView();
+  const cityDetail = munroDetailView.createCityDetail(city);
+  return cityDetail;
 };
 
 module.exports = ListView;

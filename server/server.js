@@ -5,7 +5,7 @@ const path = require('path');
 const publicPath = path.join(__dirname, '../client/public');
 app.use(express.static(publicPath));
 
-const teas = [
+const cities = [
   { city_name: "Aarhus",
     image_url: "https://d13k13wj6adfdf.cloudfront.net/urban_areas/aarhus_web-1462c370b8.jpg",
     categories: [
