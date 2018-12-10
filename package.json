@@ -1,7 +1,8 @@
 {
   "name": "w8_group_js_project",
   "version": "1.0.0",
-  "main": "index.js",
+  "description": "",
+  "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "webpack -w",
@@ -12,6 +13,7 @@
     "type": "git",
     "url": "git+https://github.com/rmhancock/w8_group_js_project.git"
   },
+  "keywords": [],
   "author": "",
   "license": "ISC",
   "bugs": {
@@ -22,11 +24,16 @@
     "body-parser": "^1.18.3",
     "express": "^4.16.4",
     "fs": "0.0.1-security",
-    "mongodb": "^3.0.7",
+    "mongodb": "^3.1.10",
     "node-fetch": "^2.3.0",
     "nodemon": "^1.17.4",
     "path": "^0.12.7",
     "webpack": "^4.27.1",
     "webpack-cli": "^3.1.2"
+  },
+  "devDependencies": {
+    "nodemon": "^1.17.3",
+    "webpack": "^4.6.0",
+    "webpack-cli": "^2.1.2"
   }
 }
