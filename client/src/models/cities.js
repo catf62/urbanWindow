@@ -18,8 +18,8 @@ Cities.prototype.getCityNames = function () {
 //
 Cities.prototype.bindEvents = function () {
   PubSub.subscribe(`SelectView:change`, (evt) => {
-    console.log('bananas');
-    // this.postData(evt.detail);
+    console.log(evt.detail);
+    this.postData(evt.detail);
   });
 };
 
@@ -38,11 +38,11 @@ Cities.prototype.getData = function () {
     })
     .catch(console.error);
 };
-//
-// Cities.prototype.postData = function (formData) {
-//   this.request.post(formData)
-//     .then((consumables) => {
-//       PubSub.publish(`Cities:${this.category}-data-loaded`, consumables);
+
+// Cities.prototype.postData = function (selectedCityIndex) {
+//   this.request.post(selectedCityIndex)
+//     .then((cities) => {
+//       PubSub.publish(`Cities:Data Loaded`, cities);
 //     });
 // };
 
