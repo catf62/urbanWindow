@@ -21,16 +21,16 @@ ListView.prototype.clearList = function () {
   this.container.innerHTML = '';
 };
 
-ListView.prototype.renderCityDetailViews = function (cities) {
+ListView.prototype.renderCityDetailView = function (cities) {
   cities.forEach((city) => {
     const cityItem = this.createCityListItem(city);
     this.container.appendChild(cityItem);
   });
 };
 
-ListView.prototype.createListItem = function (city) {
+ListView.prototype.createCityListItem = function (city) {
   const cityDetailView = new CityDetailView();
-  const cityDetail = munroDetailView.createCityDetail(city);
+  const cityDetail = cityDetailView.createCityDetail(city);
   return cityDetail;
 };
 

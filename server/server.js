@@ -89,5 +89,5 @@ app.listen(3000, function () {
 });
 
 app.get('/api/cities', (req, res) => { // NEW
-  res.json(teas);
+  res.json(cities);
 });
