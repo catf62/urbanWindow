@@ -8,6 +8,7 @@ app.use(express.static(publicPath));
 const cities = [
   { city_name: "Aarhus",
     image_url: "https://d13k13wj6adfdf.cloudfront.net/urban_areas/aarhus_web-1462c370b8.jpg",
+    city_summary: "hurgle blurgle Aarhus is pure awesome, best city yes",
     categories: [
       {
         color: "#f3c32c",
@@ -27,6 +28,7 @@ const cities = [
     ]},
   { city_name: "Adelaide",
     image_url: "https://d13k13wj6adfdf.cloudfront.net/urban_areas/adelaide_web-e462ed5b74.jpg",
+    city_summary: "hurgle blurgle Adelaide is pure awesome, best city yes",
     categories: [
       {
         color: "#f3c32c",
@@ -46,6 +48,7 @@ const cities = [
     ] },
   { city_name: "Albuquerque",
     image_url: "https://d13k13wj6adfdf.cloudfront.net/urban_areas/albuquerque_web-3079b54e59.jpg",
+    city_summary: "hurgle blurgle Albuquerque is pure awesome, best city yes",
     categories: [
       {
         color: "#f3c32c",
@@ -65,6 +68,7 @@ const cities = [
     ] },
   { city_name: "Almaty",
     image_url: "https://d13k13wj6adfdf.cloudfront.net/urban_areas/almaty_web-acac42d539.jpg",
+    city_summary: "hurgle blurgle Almaty is pure awesome, best city yes",
     categories: [
       {
         color: "#f3c32c",

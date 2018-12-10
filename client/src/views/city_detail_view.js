@@ -8,14 +8,19 @@ CityDetailView.prototype.createCityDetail = function (city) {
   cityName.textContent = city.city_name;
   cityDetail.appendChild(cityName);
 
-  const detailsList = document.createElement('ul');
-  const imageUrl = this.createDetailListItem('Image-url', city.image_url);
-  detailsList.appendChild(imageUrl);
+  const citySummary = document.createElement('p');
+  citySummary.textContent = city.city_summary;
+  cityDetail.appendChild(citySummary);
 
-  const categories = this.createDetailListItem('Categories', city.categories);
-  detailsList.appendChild(categories);
+  const categoryHeader = document.createElement('h4');
+  categoryHeader.textContent = 'Quality of Life';
+  cityDetail.appendChild(categoryHeader);
 
-  cityDetail.appendChild(detailsList);
+  const categoriesList = document.createElement('ul');
+
+  this.renderCityDetailListItems(city.categories, categoriesList);
+
+  cityDetail.appendChild(categoriesList);
   return cityDetail;
 };
 
@@ -23,7 +28,17 @@ CityDetailView.prototype.createDetailListItem = function (label, property) {
   const element = document.createElement('li');
   element.textContent = `${label}: ${property}`;
   return element;
-  
+
+};
+
+CityDetailView.prototype.renderCityDetailListItems = function (categories_array, categoriesList) {
+  categories_array.forEach((category) => {
+    const categoryName = category.name;
+    const categoryScore = category.score_out_of_10;
+    const elementDetail = this.createDetailListItem(categoryName, categoryScore);
+    categoriesList.appendChild(elementDetail);
+  });
+
 };
 
 module.exports = CityDetailView;
