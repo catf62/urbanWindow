@@ -1,14 +1,13 @@
-const capitalise = function (str) {
+const urlToString = function (str) {
 
-return str
-    .toLowerCase()
-    .split(' ')
-    .map(function(word) {
-        return word[0].toUpperCase() + word.substr(1);
-    })
-    .join(' ');
- }
+  const category = str.toLowerCase()
+  .split('-')
+  .map(function(word) {
+    return word[0].toUpperCase() + word.substr(1);
+  })
+  .join(' ');
 
+  return category;
+}
 
-
- module.exports = capitalise;
+module.exports = urlToString;

@@ -1,5 +1,4 @@
-const stringModifier = require('./string_modifier.js')
+const getIndex = require('./index_identifier.js');
 
-let string = 'fdhsj fehios fhioscbnv';
-
-console.log(stringModifier(string));
+let string = 'startups';
+console.log(getIndex(string));
