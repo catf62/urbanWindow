@@ -6,6 +6,7 @@
   <link rel="stylesheet" href="css/main.css">
   <link rel="stylesheet" href="css/bbc_css.css">
   <script src="js/bundle.js"></script>
+  <link rel="stylesheet" href="./css/teleport-autocomplete.css">
 </head>
 
 <div id="orb-header" class="orb-nav-pri orb-nav-pri-black b-header--black--white orb-location-d orb-nav-dyn"> <div class="orb-nav-pri-container b-r b-g-p"> <div class="orb-nav-section orb-nav-blocks"> <a href="/"> <img class="orb-nav-theme-dynamic" src="http://static.bbci.co.uk/frameworks/barlesque/4.0.1/orb/4/img/bbc-blocks-light.png" width="84" height="24" alt="BBC" data-activesrc="http://static.bbci.co.uk/frameworks/barlesque/4.0.1/orb/4/img/bbc-blocks-dark.png"> </a> </div> <section> <div class="orb-skip-links"> <h2>Accessibility links</h2> <ul>  <li><a id="orb-accessibility-help" href="/accessibility/">Accessibility Help</a></li> </ul> </div> </section>  <div id="mybbc-wrapper" class="orb-nav-section orb-nav-id orb-nav-focus"> <div id="idcta-statusbar" class="orb-nav-section orb-nav-focus idcta-signedin"> <a id="idcta-link" href="https://account.bbc.com/account?ptrt=http%3A%2F%2Fwww.bbc.co.uk%2Fcorporate2%2Finsidethebbc%2Fwhatwedo%2Flearning&amp;userOrigin=corporate2&amp;context=corporate2"> <span id="idcta-username">Your account</span> </a> </div>  <script type="text/javascript"> require(['idcta/statusbar'], function(statusbar) { new statusbar.Statusbar({"id":"idcta-statusbar","publiclyCacheable":true}); }); </script>
@@ -15,6 +16,7 @@
 <body>
   <h1>Educate the Beeb</h1>
 
+   <input type="text" class="my-input" name="field" tabindex="1" autocomplete="off">
     <label for="city-options">Select City:</label>
     <select id="city-options">
       <option selected disabled></select>
