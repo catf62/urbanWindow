@@ -15,15 +15,15 @@ CityDetailView.prototype.createCityDetail = function (city) {
   citySummary.innerHTML = city.summary;
   cityDetail.appendChild(citySummary);
 
-  const categoryHeader = document.createElement('h4');
-  categoryHeader.textContent = 'Quality of Life';
-  cityDetail.appendChild(categoryHeader);
+  // const categoryHeader = document.createElement('h4');
+  // categoryHeader.textContent = 'Quality of Life';
+  // cityDetail.appendChild(categoryHeader);
 
-  const categoriesList = document.createElement('ul');
-
-  this.renderCityDetailListItems(city.categories, categoriesList);
-
-  cityDetail.appendChild(categoriesList);
+  // const categoriesList = document.createElement('ul');
+  //
+  // this.renderCityDetailListItems(city.categories, categoriesList);
+  //
+  // cityDetail.appendChild(categoriesList);
 
   graphDetail = this.createGraphDetail(city.categories);
   cityDetail.appendChild(graphDetail);
@@ -97,7 +97,7 @@ CityDetailView.prototype.highChartsGraph = function (element, stats) {
       min: 0,
       title: {
         text: 'City Score Out of 10',
-        align: 'high'
+        align: 'middle'
       },
       labels: {
         overflow: 'justify'
@@ -130,23 +130,23 @@ CityDetailView.prototype.highChartsGraph = function (element, stats) {
     },
     series: [{
       data: [
-        stats[0],
-        stats[1],
-        stats[2],
-        stats[3],
-        stats[4],
-        stats[5],
-        stats[6],
-        stats[7],
-        stats[8],
-        stats[9],
-        stats[10],
-        stats[11],
-        stats[12],
-        stats[13],
-        stats[14],
-        stats[15],
-        stats[16]
+        {y:stats[0], color:'#5833FF'},
+        {y:stats[1], color:'#4933FF'},
+        {y:stats[2], color:'#3933FF'},
+        {y:stats[3], color:'#334BFF'},
+        {y:stats[4], color:'#336AFF'},
+        {y:stats[5], color:'#3385FF'},
+        {y:stats[6], color:'#339DFF'},
+        {y:stats[7], color:'#33B8FF'},
+        {y:stats[8], color:'#33D3FF'},
+        {y:stats[9], color:'#33EEFF'},
+        {y:stats[10], color:'#33FFF9'},
+        {y:stats[11], color:'#33FFEA'},
+        {y:stats[12], color:'#33FFD6'},
+        {y:stats[13], color:'#33FFB8'},
+        {y:stats[14], color:'#33FFAC'},
+        {y:stats[15], color:'#33FF9D'},
+        {y:stats[16], color:'#33FF82'}
        ]
     }]
   });
