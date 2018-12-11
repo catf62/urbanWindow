@@ -18,9 +18,7 @@ Cities.prototype.getCityNames = function () {
 //
 Cities.prototype.bindEvents = function () {
   PubSub.subscribe(`SelectView:change`, (evt) => {
-    // display hidden result HTML box
-    const resultBox = document.querySelector('.result-panel');
-    resultBox.style.visibility = "visible";
+    
     const cityIndex = evt.detail;
     this.postData(cityIndex);
     console.log(cityIndex);

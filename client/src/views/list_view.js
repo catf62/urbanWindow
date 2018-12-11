@@ -23,6 +23,10 @@ ListView.prototype.clearList = function () {
 
 ListView.prototype.renderCityDetailView = function (cities) {
   cities.forEach((city) => {
+    // display hidden result HTML box
+    const resultBox = document.querySelector('.result-panel');
+    resultBox.style.visibility = "visible";
+    
     const cityItem = this.createCityListItem(city);
     this.container.appendChild(cityItem);
   });
