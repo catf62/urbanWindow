@@ -9,6 +9,15 @@ html {
   height: 100%;
 }
 
+p {
+  font-size: 15px;
+  font-family: 'Arial' sans-serif;
+}
+
+ul {
+  font-size: 15px;
+}
+
 
 .flex-container {
   display: flex;
@@ -21,24 +30,30 @@ html {
 }
 
 .control-panel {
-  width: 250px;
-  height: 400px;
-  background-color: #dbdbdb;
-  padding: 20px;
+  width: 290px;
+  height: 200px;
+  background-color: #ffffff;
+  padding: 10px 20px 20px;
+  background: rgba(255, 255, 255, 0.7);
 }
 
 .result-panel {
-  width: 550px;
+  width: 590px;
   margin-left: 20px;
   height: 500px;
-  background-color: #dbdbdb;
-  padding: 20px;
+  background-color: #ffffff;
+  padding: 10px 20px 20px;
   visibility: hidden;
+  background: rgba(255, 255, 255, 0.7);
+
 }
 
 #main-title {
-  margin-left: 300px;
+  margin-left: 0px;
   color: #ffffff;
+  font-family: 'Quicksand', sans-serif;
+  font-size: 40px;
+  width: 985px;
 
 
 }
