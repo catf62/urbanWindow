@@ -26,7 +26,8 @@ ListView.prototype.renderCityDetailView = function (cities) {
     // display hidden result HTML box
     const resultBox = document.querySelector('.result-panel');
     resultBox.style.visibility = "visible";
-    
+    // change background image
+    document.body.style.backgroundImage = `url(${city.pictureURL})`;
     const cityItem = this.createCityListItem(city);
     this.container.appendChild(cityItem);
   });
