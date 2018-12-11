@@ -18,6 +18,9 @@ Cities.prototype.getCityNames = function () {
 //
 Cities.prototype.bindEvents = function () {
   PubSub.subscribe(`SelectView:change`, (evt) => {
+    // display hidden result HTML box
+    const resultBox = document.querySelector('.result-panel');
+    resultBox.style.visibility = "visible";
     const cityIndex = evt.detail;
     this.postData(cityIndex);
     console.log(cityIndex);
@@ -30,7 +33,7 @@ Cities.prototype.getData = function () {
     .then((cities) => {
       // store the data in a variable
       this.citiesData = cities;
-    
+
 
       // get an array of just the names
       const cityNames = this.getCityNames();

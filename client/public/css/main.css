@@ -28,6 +28,7 @@ body {
   height: 500px;
   background-color: #dbdbdb;
   padding: 20px;
+  visibility: hidden;
 }
 
 #main-title {
