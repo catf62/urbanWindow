@@ -20,7 +20,7 @@
 5. Open the Activity Monitor and quit any instances of mongod which are running
 
 6. Install npm node modules by typing:
-  npm run build
+  npm install
 
 7. Start up mongodb, and leave it running in the terminal window by typing:
   mongod

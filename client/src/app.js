@@ -4,8 +4,11 @@ const Cities = require('./models/cities.js');
 const ListView = require('./views/list_view');
 // link to the view where the user chooses a city
 const SelectView = require('./views/select_view');
+// link to Highcharts Graph
+const HighchartsGraph = require('../public/js/highcharts_tutorial');
 
 document.addEventListener('DOMContentLoaded', () => {
+  console.log('DOM ready')
   // listening for a city selection being made
   const selectElement = document.querySelector('select#city-options');
   const selectView = new SelectView(selectElement);
@@ -16,9 +19,8 @@ document.addEventListener('DOMContentLoaded', () => {
   const citiesListView = new ListView(listContainer);
   citiesListView.bindEvents();
 
-  // const apiUrl = 'http://localhost:3000/api';
-  //
-  // const cities = new Cities('cities', `${apiUrl}/cities`);
+
+
   const cities = new Cities;
   cities.bindEvents();
   cities.getData();

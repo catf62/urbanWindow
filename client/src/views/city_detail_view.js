@@ -21,6 +21,10 @@ CityDetailView.prototype.createCityDetail = function (city) {
   this.renderCityDetailListItems(city.categories, categoriesList);
 
   cityDetail.appendChild(categoriesList);
+
+  graphDetail = this.createGraphDetail();
+  cityDetail.appendChild(graphDetail);
+
   return cityDetail;
 };
 
@@ -40,5 +44,12 @@ CityDetailView.prototype.renderCityDetailListItems = function (categories_array,
   });
 
 };
+
+CityDetailView.prototype.createGraphDetail= function () {
+  const element = document.createElement('div');
+  element.textContent = "Graph in testing monkeys";
+  return element;
+};
+
 
 module.exports = CityDetailView;
