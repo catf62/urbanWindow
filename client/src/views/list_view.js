@@ -25,6 +25,7 @@ ListView.prototype.renderCityDetailView = function (cities) {
   cities.forEach((city) => {
     const cityItem = this.createCityListItem(city);
     this.container.appendChild(cityItem);
+    console.log('finished');
   });
 };
 

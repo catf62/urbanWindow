@@ -4,8 +4,6 @@ const Cities = require('./models/cities.js');
 const ListView = require('./views/list_view');
 // link to the view where the user chooses a city
 const SelectView = require('./views/select_view');
-// link to Highcharts Graph
-const HighchartsGraph = require('../public/js/highcharts_tutorial');
 
 document.addEventListener('DOMContentLoaded', () => {
   console.log('DOM ready')
