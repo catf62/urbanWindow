@@ -23,8 +23,8 @@ Cities.prototype.getData = function () {
     .then((cities) => {
       // store the data in a variable
       this.citiesData = cities;
-      // publish all of the data for the cities
-      PubSub.publish('Cities:cities-ready', this.citiesData);
+
+
       // get an array of just the names
       const cityNames = this.getCityNames();
       // publish another event sending out just the list of the names
