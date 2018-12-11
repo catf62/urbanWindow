@@ -61,14 +61,18 @@ CityDetailView.prototype.highChartsGraph = function (element, stats) {
   console.log(stats);
   Highcharts.chart(element, {
     chart: {
-      type: 'bar'
+      type: 'bar',
+      height: 360,
+      width: 590,
+      spacing: 20,
+      borderRadius: 10
     },
     title: {
       text: 'Quality of Living Stats'
     },
-    subtitle: {
-      text: 'Source: <a href="https://developers.teleport.org/api/">Teleport Public APIs</a>'
-    },
+    // subtitle: {
+    //   text: 'Source: <a href="https://developers.teleport.org/api/">Teleport Public APIs</a>'
+    // },
     xAxis: {
       categories: [
         'Housing',
@@ -95,6 +99,8 @@ CityDetailView.prototype.highChartsGraph = function (element, stats) {
     },
     yAxis: {
       min: 0,
+      max: 10,
+      tickInterval: 1,
       title: {
         text: 'City Score Out of 10',
         align: 'middle'
@@ -139,14 +145,31 @@ CityDetailView.prototype.highChartsGraph = function (element, stats) {
         {y:stats[6], color:'#339DFF'},
         {y:stats[7], color:'#33B8FF'},
         {y:stats[8], color:'#33D3FF'},
-        {y:stats[9], color:'#33EEFF'},
-        {y:stats[10], color:'#33FFF9'},
-        {y:stats[11], color:'#33FFEA'},
-        {y:stats[12], color:'#33FFD6'},
-        {y:stats[13], color:'#33FFB8'},
-        {y:stats[14], color:'#33FFAC'},
-        {y:stats[15], color:'#33FF9D'},
-        {y:stats[16], color:'#33FF82'}
+        {y:stats[9], color:'#2cd8e8'},
+        {y:stats[10], color:'#2be5df'},
+        {y:stats[11], color:'#2de5d3'},
+        {y:stats[12], color:'#2ee8c2'},
+        {y:stats[13], color:'#2de2a3'},
+        {y:stats[14], color:'#2be59b'},
+        {y:stats[15], color:'#2de58b'},
+        {y:stats[16], color:'#2ee875'}
+        // {y:stats[0], color:'#5833FF'},
+        // {y:stats[1], color:'#4933FF'},
+        // {y:stats[2], color:'#3933FF'},
+        // {y:stats[3], color:'#334BFF'},
+        // {y:stats[4], color:'#336AFF'},
+        // {y:stats[5], color:'#3385FF'},
+        // {y:stats[6], color:'#339DFF'},
+        // {y:stats[7], color:'#92cfe5'},
+        // {y:stats[8], color:'#92cae5'},
+        // {y:stats[9], color:'#92c1e5'},
+        // {y:stats[10], color:'#92b8e5'},
+        // {y:stats[11], color:'#92a1e5'},
+        // {y:stats[12], color:'#929de5'},
+        // {y:stats[13], color:'#33FFB8'},
+        // {y:stats[14], color:'#33FFAC'},
+        // {y:stats[15], color:'#33FF9D'},
+        // {y:stats[16], color:'#33FF82'}
        ]
     }]
   });

@@ -35,16 +35,18 @@ ul {
   background-color: #ffffff;
   padding: 10px 20px 20px;
   background: rgba(255, 255, 255, 0.7);
+  border-radius: 10px;
 }
 
 .result-panel {
   width: 590px;
   margin-left: 20px;
-  height: 500px;
+  height: 550px;
   background-color: #ffffff;
   padding: 10px 20px 20px;
   visibility: hidden;
   background: rgba(255, 255, 255, 0.7);
+  border-radius: 10px;
 
 }
 
@@ -60,4 +62,5 @@ ul {
 
 #graph-box {
   background-color: blue;
+
 }
