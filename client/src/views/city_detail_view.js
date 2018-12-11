@@ -4,7 +4,7 @@ CityDetailView.prototype.createCityDetail = function (city) {
   const cityDetail = document.createElement('div');
   cityDetail.classList.add('city-detail');
 
-  const cityName = document.createElement('h3');
+  const cityName = document.createElement('h1');
   cityName.textContent = city.name;
   cityDetail.appendChild(cityName);
 
