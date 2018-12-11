@@ -10,17 +10,10 @@ Cities.prototype.getCityNames = function () {
   return cityNames;
 };
 
-// const Cities = function (city_options, url) {
-//   this.city_options = city_options;
-//   this.url = url;
-//   this.request = new RequestHelper(this.url);
-// };
-//
 Cities.prototype.bindEvents = function () {
   PubSub.subscribe(`SelectView:change`, (evt) => {
-    const cityIndex = evt.detail;
-    this.postData(cityIndex);
-    console.log(cityIndex);
+    const cityName = evt.detail;
+    this.postData(cityName);
   });
 };
 
@@ -40,16 +33,16 @@ Cities.prototype.getData = function () {
     .catch(console.error);
 };
 
-Cities.prototype.postData = function (cityIndex) {
-  const selectedCity = this.filterAllCitiesByName(cityIndex);
-  console.log(this);
-  console.log(cityIndex);
+Cities.prototype.postData = function (cityName) {
+  const selectedCity = this.findCityByName(cityName);
   PubSub.publish('Cities:cities-ready', selectedCity);
 };
 
-Cities.prototype.filterAllCitiesByName = function (cityIndex) {
-  const selectedCity = this.citiesData[cityIndex];
-  return [selectedCity];
+Cities.prototype.findCityByName = function (cityName) {
+  const selectedCity = this.citiesData.filter((city) => {
+    return city.name === cityName
+  });
+  return selectedCity;
 };
 
 module.exports = Cities;
