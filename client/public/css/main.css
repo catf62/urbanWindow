@@ -1,6 +1,61 @@
-* {
-  font-family: "Josefin Sans", sans-serif;
-  color: Black;
+body {
+  background-image: url("https://d2v9y0dukr6mq2.cloudfront.net/video/thumbnail/BloSxjK/horizon-of-a-rotating-earth-from-space_4ydbryjp__F0000.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  min-height: 100%;
+}
+
+html {
+  height: 100%;
+}
+
+p {
+  font-size: 15px;
+  font-family: 'Arial' sans-serif;
+}
+
+ul {
+  font-size: 15px;
+}
+
+
+.flex-container {
+  display: flex;
+  flex-direction: row;
+  align-content: center;
+}
+
+.flex-column {
+  flex-grow: 1;
+}
+
+.control-panel {
+  width: 290px;
+  height: 200px;
+  background-color: #ffffff;
+  padding: 10px 20px 20px;
+  background: rgba(255, 255, 255, 0.7);
+}
+
+.result-panel {
+  width: 590px;
+  margin-left: 20px;
+  height: 500px;
+  background-color: #ffffff;
+  padding: 10px 20px 20px;
+  visibility: hidden;
+  background: rgba(255, 255, 255, 0.7);
+
+}
+
+#main-title {
+  margin-left: 0px;
+  color: #ffffff;
+  font-family: 'Quicksand', sans-serif;
+  font-size: 40px;
+  width: 985px;
+
+
 }
 
 #graph-box {
