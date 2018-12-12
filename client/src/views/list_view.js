@@ -30,6 +30,7 @@ ListView.prototype.renderCityDetailView = function (cities) {
     document.body.style.backgroundImage = `url(${city.pictureURL})`;
     const cityItem = this.createCityListItem(city);
     this.container.appendChild(cityItem);
+    console.log('finished');
   });
 };
 

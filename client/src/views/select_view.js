@@ -1,6 +1,6 @@
 const PubSub = require('../helpers/pub_sub.js');
 const Request = require('../helpers/request_helper.js');
-const TeleportAutocomplete = require('teleport-autocomplete');
+const TeleportAutocomplete = require('../teleport-autocomplete.js');
 
 const SelectView = function (selectElement) {
   this.selectElement = selectElement;

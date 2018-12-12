@@ -1,6 +1,8 @@
 .tp-autocomplete {
   position: relative;
-  max-width: 25em; }
+  max-width: 390px;
+  margin-top: 10px;
+}
 
 .tp-ac__input {
   width: 100%;
@@ -29,21 +31,24 @@
     outline: none; }
   .tp-ac__input::-ms-clear {
     display: none; }
-  .spinner .tp-ac__input {
-    padding-right: 1.5em;
-    margin-right: -1.5em; }
+  .tp-ac__input {
+    /* padding-right: -10em; */
+    /* margin-right: 0em; */
+  }
 
 .tp-ac__list {
-  position: absolute;
+  position: relative;
   z-index: 1;
-  width: 100%;
+  width: 102.3%;
   margin: 0;
   padding-left: 0;
+  text-align: left;
   list-style-type: none;
   color: #979797;
   background-color: #fff;
   box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.35);
-  font-size: 0.875em; }
+  font-size: 0.875em;
+}
 
 .tp-ac__item {
   overflow: hidden;
@@ -80,11 +85,12 @@
   right: 0.5em;
   width: 1em;
   height: 1em;
-  margin-top: -0.625em;
-  margin-left: -0.625em;
+  margin-top: -3em;
+  margin-left: -3em;
   content: '';
   -webkit-animation: spinner 1s linear infinite;
           animation: spinner 1s linear infinite;
   border: 2px solid rgba(0, 0, 0, 0.3);
   border-top-color: rgba(0, 0, 0, 0.6);
-  border-radius: 50%; }
+  border-radius: 50%;
+}

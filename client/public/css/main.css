@@ -18,6 +18,10 @@ ul {
   font-size: 15px;
 }
 
+label {
+  font-size: 12px;
+  font-family: 'Arial' sans-serif;
+}
 
 .flex-container {
   display: flex;
@@ -30,22 +34,23 @@ ul {
 }
 
 .control-panel {
-  width: 290px;
+  width: 400px;
   height: 200px;
   background-color: #ffffff;
   padding: 10px 20px 20px;
   background: rgba(255, 255, 255, 0.7);
+  border-radius: 10px;
 }
 
 .result-panel {
   width: 590px;
   margin-left: 20px;
-  height: 500px;
+  height: 550px;
   background-color: #ffffff;
   padding: 10px 20px 20px;
   visibility: hidden;
   background: rgba(255, 255, 255, 0.7);
-
+  border-radius: 10px;
 }
 
 #main-title {
@@ -54,6 +59,8 @@ ul {
   font-family: 'Quicksand', sans-serif;
   font-size: 40px;
   width: 985px;
+}
 
-
+#graph-box {
+  background-color: blue;
 }
