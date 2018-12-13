@@ -19,6 +19,10 @@ ul {
   font-size: 15px;
 }
 
+label {
+  font-size: 12px;
+  font-family: 'Arial' sans-serif;
+}
 
 .flex-container {
   display: flex;
@@ -32,7 +36,7 @@ ul {
 
 .control-panel {
   width: 290px;
-  height: 230px;
+  height: 250px;
   background-color: #ffffff;
   padding: 10px 20px 20px;
   background: rgba(255, 255, 255, 0.7);
@@ -48,7 +52,6 @@ ul {
   visibility: hidden;
   background: rgba(255, 255, 255, 0.7);
   border-radius: 10px;
-
 }
 
 #main-title {
@@ -57,11 +60,8 @@ ul {
   font-family: 'Questrial', sans-serif;
   font-size: 40px;
   width: 985px;
-
-
 }
 
 #graph-box {
   background-color: blue;
-
 }

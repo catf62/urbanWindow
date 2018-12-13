@@ -1,19 +1,31 @@
 const PubSub = require('../helpers/pub_sub.js');
 const Request = require('../helpers/request_helper.js');
+const TeleportAutocomplete = require('../teleport-autocomplete.js');
 
 const SelectView = function (selectElement) {
   this.selectElement = selectElement;
 };
 
 SelectView.prototype.bindEvents = function () {
-  PubSub.subscribe('Cities:city-names-ready', (evt) =>
-   this.populateSelect(evt.detail));
+  // const autocompleteContainer = document.querySelector('.autocomplete');
 
-  this.selectElement.addEventListener('change', (evt) => {
-    const selectedIndex = evt.target.value;
-    PubSub.publish('SelectView:change', selectedIndex);
-    console.log(selectedIndex);
+  TeleportAutocomplete
+  .init('.my-input')
+  .on('change', function(value) {
+    const selectedCityName = value.name;
+    console.log(selectedCityName);
+    PubSub.publish('SelectView:change', selectedCityName);
   });
+
+  //
+  // PubSub.subscribe('Cities:city-names-ready', (evt) =>
+  //  this.populateSelect(evt.detail));
+  //
+  // this.selectElement.addEventListener('change', (evt) => {
+  //   const selectedIndex = evt.target.value;
+  //   // PubSub.publish('SelectView:change', selectedIndex);
+  //   console.log(selectedIndex);
+  // });
 };
 
 SelectView.prototype.populateSelect = function (cityNames) {
