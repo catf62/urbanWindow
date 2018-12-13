@@ -12,6 +12,7 @@ html {
 p {
   font-size: 15px;
   font-family: 'Arial' sans-serif;
+  line-height: 19px;
 }
 
 ul {
@@ -31,7 +32,7 @@ ul {
 
 .control-panel {
   width: 290px;
-  height: 200px;
+  height: 230px;
   background-color: #ffffff;
   padding: 10px 20px 20px;
   background: rgba(255, 255, 255, 0.7);
@@ -53,7 +54,7 @@ ul {
 #main-title {
   margin-left: 0px;
   color: #ffffff;
-  font-family: 'Quicksand', sans-serif;
+  font-family: 'Questrial', sans-serif;
   font-size: 40px;
   width: 985px;
 

@@ -25,6 +25,7 @@ CityDetailView.prototype.createCityDetail = function (city) {
   //
   // cityDetail.appendChild(categoriesList);
 
+  // console.log(city);
   graphDetail = this.createGraphDetail(city.categories);
   cityDetail.appendChild(graphDetail);
 
